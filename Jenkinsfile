@@ -1,16 +1,16 @@
 pipeline {
    agent none
   environment{
-      BUILD_SERVER_IP='ec2-user@65.0.75.62'
+      BUILD_SERVER_IP='ec2-user@52.66.240.102'
        IMAGE_NAME='kuttysuresh/private:myphp$BUILD_NUMBER'
-       DEPLOY_SERVER_IP='ec2-user@3.110.221.9'
+       DEPLOY_SERVER_IP='ec2-user@13.232.23.191'
    }
     stages {          
         stage('BUILD DOCKERIMAGE AND PUSH TO DOCKERHUB') {
             agent any            
             steps {
                 script{
-                sshagent(['ssh-key']) {
+                sshagent(['ssh-key1']) {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 echo "Packaging the apps"
                 sh "scp -o StrictHostKeyChecking=no -r docker-files ${BUILD_SERVER_IP}:/home/ec2-user"

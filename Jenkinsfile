@@ -10,7 +10,7 @@ pipeline {
             agent any            
             steps {
                 script{
-                sshagent(['ssh-key1']) {
+                sshagent(['ssh-key']) {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 echo "Packaging the apps"
                 sh "scp -o StrictHostKeyChecking=no -r docker-files ${BUILD_SERVER_IP}:/home/ec2-user"

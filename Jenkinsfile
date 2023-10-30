@@ -1,9 +1,9 @@
 pipeline {
    agent none
   environment{
-      BUILD_SERVER_IP='ec2-user@52.66.240.102'
+      BUILD_SERVER_IP='ec2-user@172.31.6.232'
        IMAGE_NAME='kuttysuresh/private:myphp$BUILD_NUMBER'
-       DEPLOY_SERVER_IP='ec2-user@13.232.23.191'
+       DEPLOY_SERVER_IP='ec2-user@172.31.8.70'
    }
     stages {          
         stage('BUILD DOCKERIMAGE AND PUSH TO DOCKERHUB') {

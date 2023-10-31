@@ -4,9 +4,9 @@ services:
      image: "${DOCKER_IMAGE}"
      ports:
      - "8001-8002:80"
-  deploy:   
+    deploy:   
      relicas: 2
-  depends_on:
+    depends_on:
      - mysql
   mysql:
      image: kuttysuresh/private:mysql

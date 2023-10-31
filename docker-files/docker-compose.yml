@@ -3,7 +3,8 @@ services:
    web:
      image: "${DOCKER_IMAGE}"
      ports:
-     - 8001-8002:80
+     - "8001-8002:80"
+   deploy:   
     relicas: 2
      depends_on:
      - mysql
